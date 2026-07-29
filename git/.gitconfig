@@ -1,6 +1,12 @@
 [advice]
 	addIgnoredFile = false
 
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+
 [core]
 	editor = nvim
 
