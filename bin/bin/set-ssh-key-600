@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ "$#" -gt 1 ]; then
+    echo "Usage: set-ssh-key-600 [key_name]" >&2
+    exit 1
+fi
+
+readonly SSH_DIR="${HOME}/.ssh"
+
+if [[ ! -d "$SSH_DIR" ]]; then
+    echo "Error: SSH directory not found at $SSH_DIR" >&2
+    exit 1
+fi
+
+readonly PRIVATE_KEY="$SSH_DIR/${1:-id_ed25519}"
+
+if [[ ! -f "$PRIVATE_KEY" ]]; then
+    echo "Error: Private key not found at $PRIVATE_KEY" >&2
+    exit 1
+fi
+
+chmod 600 "$PRIVATE_KEY"

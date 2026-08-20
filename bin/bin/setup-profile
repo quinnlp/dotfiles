@@ -6,7 +6,7 @@ readonly SCRIPT_PATH="$(readlink -f -- "${BASH_SOURCE[0]}")"
 readonly PROFILE_DIR="$(dirname -- "$SCRIPT_PATH")/../../profile"
 
 if [[ ! -d "$PROFILE_DIR" ]]; then
-	echo "ERROR: profile dir not found: $PROFILE_DIR" >&2
+	echo "Error: profile dir not found: $PROFILE_DIR" >&2
 	exit 1
 fi
 
